@@ -17,9 +17,6 @@ Google - mocha tests to get an idea.
 */
 
 const countEvens = (arr) => {
-    if (!arr.length) {
-        return 0
-    }
     let count = 0
     arr.forEach(num => {
         if (num == NaN || num == null) {

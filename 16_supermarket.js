@@ -30,7 +30,32 @@ Check your solutions with mocha 16_supermarket.js
 */
 
 function queueTime(customers, n) {
-    // Your code here
+    // Create 'queues' array
+    let queues = []
+
+    // For number of queues 'n', create and push an empty array to 'queues'
+    for (let i = 0; i < n; i++) {
+        queues.push([])
+    }
+
+    // create queueSum helper method, which returns the sum of each queue element, or 0 if empty
+    function queueSums(queueList) {
+        return queueList.map(queue => queue.reduce((a, b) => a + b, 0))
+    }
+
+    // create minQueue helper method which returns the queue element (array) with the minimum sum
+    function minQueue() {
+        return Math.min(...queueSums(queues))
+    }
+
+    // For each number in 'customers' array, push number to minQueue
+    for (let customer of customers) {
+        queues.filter(queue => queue.reduce((a, b) => a + b, 0) == minQueue())[0].push(customer)
+    }
+
+    // after all numbers have been pushed, return maximum queue sum
+    return Math.max(...queueSums(queues))
+
 };
 
 const assert = require('assert');
