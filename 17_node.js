@@ -27,6 +27,13 @@ const requestHandler = (request, response) => {
 
   console.log('Woop, new request!', request.method, request.url);
 
+  if (request.url === '/') {
+    response.writeHead(200, {
+      'Content-Type': 'text/html'
+    })
+    response.end('<h1>Welcome to the homepage</h1>')
+  }
+
   if (request.url === '/hello') {
     response.end('world')
   }
