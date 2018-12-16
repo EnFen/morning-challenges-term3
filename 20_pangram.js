@@ -12,8 +12,16 @@ If the given string has any uppercase or numbers, it should return false
 
 */
 
+// function isPangram(string) {
+//     alphabet = 'abcdefghijklmnopqrstuvwxyz'
+//     for (let letter of alphabet) {
+//         if (!string.toLowerCase().includes(letter)) return false
+//     }
+//     return true
+// }
+
 function isPangram(string) {
-    //Your code here
+    return [...new Set(string.replace(/[^a-z]/gi, ''))].length === 26 ? true : false
 }
 
 const assert = require('assert');
