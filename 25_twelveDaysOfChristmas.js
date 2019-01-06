@@ -37,7 +37,7 @@ const gifts = [
 ]
 
 function twelveDaysOfChristmas(day) {
-    // Your code here
+    return [days[day - 1], ...gifts.slice(0, day)]
 }
 
 const assert = require('chai').assert
@@ -53,7 +53,7 @@ describe('Twelve days of Christmas challenge', function () {
         assert.include(twelveDaysOfChristmas(5), "And a partridge in a pear tree.\n", "Should include a partridge in a pear tree")
     })
     it('If the nineth day is called, should return the nine gifts in the array', function () {
-        assert.include(twelveDaysOfChristmas(9), "nineth", "Should include ninth")
+        assert.include(twelveDaysOfChristmas(9), "ninth", "Should include ninth")
         assert.include(twelveDaysOfChristmas(9), "Six geese a-laying", "Should include six geese a-laying")
         assert.include(twelveDaysOfChristmas(9), "Nine ladies dancing", "Should include nine ladies dancing")
     })
