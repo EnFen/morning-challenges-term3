@@ -11,8 +11,8 @@ sample([1, 2, 3, 4, 5, 6], 3);
 => [1, 6, 2]
 */
 
-const sample = () => {
-//  Your code here
+const sample = (arr, n = 1) => {
+  return arr.sort(() => Math.random() - 0.5).slice(0, n > 0 ? n : 1)
 }
 
 
@@ -22,7 +22,7 @@ const assert = require('assert');
 describe('Sample', () => {
   it('behaves correctly when no second parameter is given', () => {
     assert.equal(sample([1]), 1);
-    assert.equal(sample([1,2]).length, 1);
+    assert.equal(sample([1, 2]).length, 1);
   });
   it('behaves correctly on negative n', () => {
     assert.equal(sample([1], -2), 1);
